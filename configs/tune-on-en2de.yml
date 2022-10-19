@@ -36,7 +36,7 @@ dataset.params:
   trg_file: ${your target file of en2de data}
   data_is_processed: false
 
-pretrain_dir: ${your pretrained model dir}
+pretrain_model: ${your pretrained model dir}
 model_dir: ${your en-de dir}
 
 
