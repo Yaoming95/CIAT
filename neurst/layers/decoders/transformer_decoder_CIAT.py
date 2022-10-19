@@ -284,7 +284,7 @@ class TransformerDecoderCIAT(Decoder):
 
         if is_training:
             x = tf.nn.dropout(
-                decoder_inputs, rate=self.get_config()["layer_postprocess_dropout_rate"])
+                x, rate=self.get_config()["layer_postprocess_dropout_rate"])
         for idx, layer in enumerate(self._stacking_layers):
             selfatt_layer = layer[0]
             encdecatt_layer = layer[1]

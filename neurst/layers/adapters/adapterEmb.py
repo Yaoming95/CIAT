@@ -42,13 +42,6 @@ class AdapterEmb(Adapter):
 
     def call(self, inputs, is_training=True):
         params = self.get_config()
-        original_inputs = inputs
-        inputs = tf.cond(
-            pred=tf.equal(tf.rank(original_inputs), 2),
-            true_fn=lambda: inputs,
-            false_fn=lambda: tf.reshape(inputs, [-1, tf.shape(inputs)[-1]])
-        )
-        inputs = tf.ensure_shape(inputs, [None, None])
         if self._use_norm:
             z = self._norm_layer(inputs)
         else:
